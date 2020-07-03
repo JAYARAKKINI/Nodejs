@@ -2,29 +2,26 @@ const http = require("http");
 const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
-const port = 3000;
+const port = 4000;
 app.use(bodyparser.json());
 const Room = [];
 const Customerdetails = [];
 app.post("/Room", (req, res) => {
   Room.push(req.body);
-  console.log("Room created");
   res.json({ message: "Room created" });
 });
 app.post("/Customerdetails", (req, res) => {
   Customerdetails.push(req.body);
-  console.log("customerdetails created");
   res.json({ message: "customerdetails" });
 });
 app.get("/bookedRoom", (req, res) => {
   let room = Customerdetails.map((data) => {
     return {
-      CustomerName: data.CustomerName,
-      Date: data.Date,
-      StartTime: data.StartTime,
-      EndTime: data.EndTime,
-      BookStatus: data.BookStatus,
-      RoomId: data.RoomId,
+      "Customer_Name": data.Customer_Name,
+      "Date": data.Date,
+      "Start_Time": data.Start_Time,
+      "End_Time": data.End_Time,
+      "Room_ID": data.Room_ID,
     };
   });
   res.json(room);
@@ -32,8 +29,8 @@ app.get("/bookedRoom", (req, res) => {
 app.get("/bookedCustomers", (req, res) => {
   let customer = Customerdetails.map((data) => {
     return {
-      CustomerName: data.CustomerName,
-      RoomId: data.RoomId,
+      "Customer_Name": data.Customer_Name,
+      "Room_ID": data.Room_ID,
     };
   });
   res.json(customer);
