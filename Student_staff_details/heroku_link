@@ -1,2 +1,24 @@
 https://studentdetailandstaffdetails.herokuapp.com/
 
+
+
+//staff
+{
+    "id":1,
+    "name":"jaya"
+}
+{
+    "id":2,
+    "name":"ramana"
+}
+//student
+{
+    "id":1,
+    "name":"rakkini",
+    "staffid":1
+}
+{
+    "id":2,
+    "name":"ravichandran",
+    "staffid":"2"
+}
